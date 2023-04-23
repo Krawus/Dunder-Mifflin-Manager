@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.krawus.springboot.dundermifflinmanager.entity.Employee;
 import com.krawus.springboot.dundermifflinmanager.service.EmployeeService;
@@ -43,7 +44,15 @@ public class EmployeeController {
 		employeeService.save(employeeToSave);
 
 		return "redirect:/employees/list";
+	}
 
+	@GetMapping("/showFormForUpdate")
+	public String showFormForUpdate(@RequestParam("employeeId") int employeeId, Model model){
+
+		Employee employeeToUpdate = employeeService.findById(employeeId);
+		model.addAttribute("employee", employeeToUpdate);
+
+		return "employees/employee-form";
 	}
 }
 
