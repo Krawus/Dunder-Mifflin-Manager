@@ -24,6 +24,12 @@ public class EmployeeServiceImpl implements EmployeeService {
 		return employeeRepository.findAll();
 	}
 
+
+	@Override
+	public List<Employee> findAllByOrderByLastNameAsc() {
+		return employeeRepository.findAllByOrderByLastNameAsc();
+	}
+
 	@Override
 	public Employee findById(int theId) {
 		Optional<Employee> result = employeeRepository.findById(theId);
@@ -48,6 +54,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 	public void deleteById(int theId) {
 		employeeRepository.deleteById(theId);
 	}
+
+
 
 }
 

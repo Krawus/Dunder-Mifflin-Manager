@@ -7,6 +7,8 @@ import com.krawus.springboot.dundermifflinmanager.entity.Employee;
 public interface EmployeeService {
 
 	List<Employee> findAll();
+
+	List<Employee>findAllByOrderByLastNameAsc();
 	
 	Employee findById(int theId);
 	

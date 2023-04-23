@@ -23,7 +23,7 @@ public class EmployeeController {
 	@GetMapping("/list")
 	public String listEmployees(Model model) {
 
-		List<Employee> employeesList = employeeService.findAll();
+		List<Employee> employeesList = employeeService.findAllByOrderByLastNameAsc();
 		model.addAttribute("employees", employeesList);
 
 		return "employees/list-employees";
