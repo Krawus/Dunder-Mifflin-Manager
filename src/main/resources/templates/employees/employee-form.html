@@ -20,12 +20,10 @@
         </p>
         
         <hr>
-
         <p class="h4 mb-4">Employee data:</p>
         <form action="#" th:action="@{/employees/save}"
                         th:object="${employee}" method="POST">
 
-            
             <input type="hidden" th:field="*{id}">
             
             <input type="text" th:field="*{firstName}"
@@ -43,6 +41,7 @@
         <hr>
         <a th:href = "@{/employees/list}">Go back to employees list</a>
     </div>
+    
 
 </body>
 
